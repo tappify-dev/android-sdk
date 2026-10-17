@@ -2,9 +2,11 @@
 
 `0.1.0` remains unreleased. A maintainer must record evidence for the exact commit:
 signed four-artifact/API/archive/checksum verification; independent repository-only
-Views and Compose R8 full-mode consumers; all instrumentation on API24 and API36;
-a fresh-token live contract suite; manual create/read/reply/resolve, offline queue
-and replay, revocation, Views host and Compose host flows. Builds without a
+Views and Compose R8 full-mode consumers; actual non-skipped instrumentation in
+each ordinary module (core, UI, Compose, Views sample, Compose sample) on API24 and
+API36; a separate protected fresh-token live contract suite (the live-only
+contract module is not an ordinary device gate); manual create/read/reply/resolve,
+offline queue and replay, revocation, Views host and Compose host flows. Builds without a
 device do not satisfy instrumentation. JVM tests do not satisfy live/manual flows.
 
 Validation must come from the successful exact-commit protected workflow, including
