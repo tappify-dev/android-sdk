@@ -7,9 +7,24 @@ a fresh-token live contract suite; manual create/read/reply/resolve, offline que
 and replay, revocation, Views host and Compose host flows. Builds without a
 device do not satisfy instrumentation. JVM tests do not satisfy live/manual flows.
 
-Only after these checks may a maintainer create tag `0.1.0`, approve the protected
+Validation must come from the successful exact-commit protected workflow, including
+API24/API36 job identities, a non-skipped fresh-token live suite, and an independent
+allowed human's approval of every named walkthrough. Release verifies GitHub run,
+workflow, artifact digest and review identities within 24 hours and signs that
+authenticated record. This proves attribution and approval, not the semantic truth
+of a human walkthrough; arbitrary JSON/URLs/booleans are not release evidence.
+
+Only after these checks may a maintainer create annotated production-signed tag
+`0.1.0`, which must resolve to the validated commit, approve the protected
 release environment, upload the source-free binary bundle to Central Portal,
 inspect/release the validated deployment, and create a public GitHub release.
 Namespace ownership, release signing fingerprint, license, remote visibility and
 Maven Central availability must be verified externally. Local initialization of
 this documentation repository does not establish public visibility or publication.
+
+Production performs a clean offline reconstruction and signs an attestation bound
+to the exact bundle, commit/tag, coordinates, verified evidence, tools and results.
+Upload independently rechecks the frozen signed candidate and attestation. These
+private audit records are not public SDK artifacts. Release concurrency and a
+persistent exact-version deployment fence block duplicate or ambiguous staging;
+maintainers must reconcile interrupted uploads before retrying.

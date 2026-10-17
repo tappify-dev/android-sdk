@@ -10,3 +10,8 @@ R8 consumer verification are part of the release process.
 
 No public release has been created. API24/API36 instrumentation and live/manual
 flows remain mandatory blockers; see [release gates](RELEASE-GATES.md).
+
+Release verification hardening: bounded recursive archive scanning, lossless binary
+API checks, exact bundle membership, candidate-byte verification, authenticated
+device/live/manual approval and signed candidate attestations. Public artifacts
+and platform requirements are unchanged; no release has been published.
