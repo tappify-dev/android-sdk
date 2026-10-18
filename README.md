@@ -22,9 +22,35 @@ use BOM `2026.06.01`; ordinary Views hosts need no Compose APIs in host source.
 Call `Tappify.start(application, "tpf_pk_<12 hex digits>", TappifyOptions(...))`
 in `Application.onCreate`, using your approved API/dashboard URLs and build type.
 The default SDK installs UI automatically through a private initializer. Direct
-UI users call idempotent `TappifyUi.install()`, which can precede startup. Set
-`manifestPlaceholders["tappifyActivationScheme"] = "tappify-<12 hex digits>"` to
-match the app key. `Tappify.tagScreen("Checkout")` tags a logical screen;
+UI users call idempotent `TappifyUi.install()` before or after startup.
+Add this inside `<application>` in your host `AndroidManifest.xml`, with
+`xmlns:android="http://schemas.android.com/apk/res/android"` on `<manifest>`:
+
+```xml
+<activity android:name="ai.tappify.ui.activation.TappifyActivationActivity"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="tappify-000000000000" android:host="activate" />
+    </intent-filter>
+</activity>
+```
+
+Replace `000000000000` with the exact 12 hex suffix of your app key (the example
+matches `tpf_pk_000000000000`). Keep host `activate` exact. The library declares
+the transparent Activity; the host supplies this app-specific filter. There is
+no consumed `tappifyActivationScheme` manifest placeholder.
+
+Optional custom routing, including core-only hosts: put the same exact filter
+on your exported routing Activity instead and call `Tappify.handle(intent)` from
+`onCreate` and `onNewIntent` after SDK startup. Do not log or persist the incoming
+URI. `true` means asynchronous acceptance, not activation success. Core suppresses
+concurrent/successful duplicates and permits retry after recoverable failure.
+The SDK Activity above forwards callbacks itself.
+
+`Tappify.tagScreen("Checkout")` tags a logical screen;
 Compose uses `TappifyScreen("Checkout")` and `BindTappify(navController) { ... }`.
 Never put personal data or entity identifiers into screen names.
 
