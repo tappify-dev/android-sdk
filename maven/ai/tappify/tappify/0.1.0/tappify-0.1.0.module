@@ -1,0 +1,104 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ai.tappify",
+    "module": "tappify",
+    "version": "0.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.6.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "ai.tappify",
+          "module": "tappify-core",
+          "version": {
+            "requires": "0.1.0"
+          }
+        },
+        {
+          "group": "ai.tappify",
+          "module": "tappify-ui",
+          "version": {
+            "requires": "0.1.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "tappify-0.1.0.aar",
+          "url": "tappify-0.1.0.aar",
+          "size": 933,
+          "sha512": "3295246d80b8f58ad2ed5bd16c20098e4f4222a7c2c475aae28a04df120ba9fcf3a9f688336966b729948decd04e24b58e8648ab748071db9cfd560dae446be6",
+          "sha256": "721f8554513cace245451eae353bfe7354a4b41f6de33f2bd81d35b176b14fad",
+          "sha1": "120ba70f3492d0262a123d972212f524fe420238",
+          "md5": "dfef1c94144bb966ca59acb31be65fec"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "ai.tappify",
+          "module": "tappify-core",
+          "version": {
+            "requires": "0.1.0"
+          }
+        },
+        {
+          "group": "ai.tappify",
+          "module": "tappify-ui",
+          "version": {
+            "requires": "0.1.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "tappify-0.1.0.aar",
+          "url": "tappify-0.1.0.aar",
+          "size": 933,
+          "sha512": "3295246d80b8f58ad2ed5bd16c20098e4f4222a7c2c475aae28a04df120ba9fcf3a9f688336966b729948decd04e24b58e8648ab748071db9cfd560dae446be6",
+          "sha256": "721f8554513cace245451eae353bfe7354a4b41f6de33f2bd81d35b176b14fad",
+          "sha1": "120ba70f3492d0262a123d972212f524fe420238",
+          "md5": "dfef1c94144bb966ca59acb31be65fec"
+        }
+      ]
+    }
+  ]
+}

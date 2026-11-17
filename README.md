@@ -1,11 +1,19 @@
 # Tappify Android SDK
 
-Binary distribution documentation for the prepared `0.1.0` Android SDK. The
-artifacts have not yet been published to Maven Central and no release tag exists.
-This repository contains documentation only; implementation source is proprietary.
-Public remote visibility is a separate hosting setting not established locally.
+Binary distribution for the `0.1.0` Android SDK. Maven Central publication is
+pending, so this repository currently hosts the same source-free Maven layout as
+a public fallback. Implementation source is proprietary.
 
-After publication, add `mavenCentral()` and select one dependency:
+Add the fallback repository before selecting a dependency:
+
+```kotlin
+repositories {
+    maven("https://raw.githubusercontent.com/tappify-dev/android-sdk/main/maven")
+    mavenCentral()
+}
+```
+
+Then select one dependency:
 
 ```kotlin
 implementation("ai.tappify:tappify:0.1.0") // default: core + in-window UI
@@ -62,8 +70,11 @@ placeholder keys and `.invalid` endpoints; request approved sample/live access
 through support@tappify.ai. See [Android documentation](https://docs.tappify.ai)
 for product documentation; runtime credentials are never public examples.
 
-Releases include a Maven-layout binary ZIP with detached PGP signatures and
-SHA-256/SHA-512 checksums (plus SHA-1/MD5 for repository compatibility). Obtain
+The GitHub fallback includes checksums for repository compatibility but omits
+the local rebuild identity's signatures; it must not be represented as the final
+Maven Central release. Registry releases include a Maven-layout binary ZIP with
+detached production PGP signatures and SHA-256/SHA-512 checksums (plus SHA-1/MD5
+for repository compatibility). Obtain
 the release key's full fingerprint through an independent trusted support
 channel, then run `gpg --verify ARTIFACT.asc ARTIFACT` and compare
 `shasum -a 256 ARTIFACT` with `ARTIFACT.sha256`. A test/local signing identity
